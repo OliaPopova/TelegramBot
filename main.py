@@ -20,6 +20,7 @@ def commands(message):
         while True:
             post_text = parser(back_post_id)
             back_post_id=post_text[1]
+            print(post_text[0])
             if post_text[0]!=None:
                 bot.send_message(id_channel, post_text[0])
                 time.sleep(60)
