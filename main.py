@@ -20,6 +20,7 @@ def commands(message):
         while True:
             post_text = parser(back_post_id)
             back_post_id=post_text[1]
+            print(post_text[0])
             if post_text[0]!=None:
                 bot.send_message(id_channel, post_text[0])
                 time.sleep(60)
@@ -38,7 +39,8 @@ def parser(back_post_id):
         post_id=data_id['data-id']
 
     if post_id != back_post_id:
-        title = post.find("div", class_="caption").text.strip()
+        title = soup.select('h3')[0].get_text()
+
         url = post.find("a", href=True)["href"].strip()
         return f"{title}\n\n{URL+url}",post_id
     else:
