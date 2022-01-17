@@ -41,6 +41,7 @@ def parser(back_post_id):
 
     if post_id != back_post_id:
         title = soup.select('h3')[0].get_text()
+
         url = post.find("a", href=True)["href"].strip()
         return f"{title}\n\n{URL+url}",post_id
     else:
