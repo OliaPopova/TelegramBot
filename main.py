@@ -22,7 +22,7 @@ def commands(message):
             back_post_id=post_text[1]
             if post_text[0]!=None:
                 bot.send_message(id_channel, post_text[0])
-                time.sleep(60)
+                time.sleep(120)
 
 
     else:
