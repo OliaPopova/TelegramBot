@@ -40,7 +40,7 @@ def parser(back_post_id):
         post_id=data_id['data-id']
 
     if post_id != back_post_id:
-        title = post.find("div", class_="caption", h3=True).text.strip()
+        title = post.find("div", class_="caption").text.strip()
         url = post.find("a", href=True)["href"].strip()
         return f"{title}\n\n{URL+url}",post_id
     else:
