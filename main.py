@@ -23,6 +23,10 @@ def commands(message):
             post_text_bbc=bbc.parserbbc(back_post_url)
             back_post_id = post_text_nplus1[1]
             back_post_url= post_text_bbc[1]
+            print(post_text_bbc[1])
+            print(post_text_bbc[0])
+            print(post_text_nplus1[1])
+            print(post_text_nplus1[0])
             if post_text_bbc[0] != None:
                 bot.send_message(id_channel, post_text_bbc[0])
                 time.sleep(60)
