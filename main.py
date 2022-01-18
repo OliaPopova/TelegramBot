@@ -3,7 +3,8 @@
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import time
-
+import bbc
+import nplus1
 import telebot
 import requests
 from bs4 import BeautifulSoup
@@ -14,40 +15,22 @@ bot = telebot.TeleBot(token)
 
 @bot.message_handler(content_types= ["text"])
 def commands(message):
-
     if message.text == "Старт":
-
         back_post_id = None
+        back_post_url = None
         while True:
-            post_text = parser(back_post_id)
-            back_post_id = post_text[1]
+            post_text_nplus1 = nplus1.parsernplus1(back_post_id)
+            post_text_bbc=bbc.parserbbc(back_post_url)
+            back_post_id = post_text_nplus1[1]
+            back_post_url= post_text_bbc[1]
+            if post_text_bbc[0] != None:
+                bot.send_message(id_channel, post_text_bbc[0])
+                time.sleep(60)
+            elif post_text_nplus1[0] != None:
+                bot.send_message(id_channel, post_text_nplus1[0])
+                time.sleep(60)
 
-            if post_text[0] != None:
-                bot.send_message(id_channel, post_text[0])
-                time.sleep(1800)
     else:
         bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши Старт")
-
-
-def parser(back_post_id):
-    URL = "https://nplus1.ru/"
-
-    page = requests.get(URL)
-    soup = BeautifulSoup(page.content, "html.parser")
-
-    post = soup.find("article", class_='item item-main item-main- _exist-image')
-    url = post.find("a", href=True)["href"].strip()
-    for data_id in soup.find_all("a", href=url, attrs={"data-id": True}):
-        post_id=data_id['data-id']
-
-    if post_id != back_post_id:
-        title = soup.select('h3')[0].get_text()
-
-        url = post.find("a", href=True)["href"].strip()
-        return f"{title}\n\n{URL+url}",post_id
-    else:
-         return None, post_id
-
-
 
 bot.polling(none_stop=True)
