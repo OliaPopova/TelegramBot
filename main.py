@@ -13,16 +13,20 @@ id_channel = "@news2k22botnews"
 bot = telebot.TeleBot(token)
 
 @bot.message_handler(content_types= ["text"])
+def commands(message):
 
-def commands():
-    back_post_id = None
-    while True:
-        post_text = parser(back_post_id)
-        back_post_id=post_text[1]
+    if message.text == "Старт":
 
-        if post_text[0]!=None:
-            bot.send_message(id_channel, post_text[0])
-            time.sleep(60)
+        back_post_id = None
+        while True:
+            post_text = parser(back_post_id)
+            back_post_id = post_text[1]
+
+            if post_text[0] != None:
+                bot.send_message(id_channel, post_text[0])
+                time.sleep(1800)
+    else:
+        bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши Старт")
 
 
 def parser(back_post_id):
