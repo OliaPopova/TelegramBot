@@ -46,4 +46,4 @@ def parser(back_post_id):
 
 
 
-bot.polling()
+bot.polling(none_stop=True)
