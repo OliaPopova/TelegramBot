@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-def parsernlus1(back_post_id):
+def parsernplus1(back_post_id):
     URL = "https://nplus1.ru/"
 
     page = requests.get(URL)
