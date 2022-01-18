@@ -14,18 +14,16 @@ bot = telebot.TeleBot(token)
 
 @bot.message_handler(content_types= ["text"])
 
-def commands(message):
-    if message.text == "start":
-        back_post_id=None
-        while True:
-            post_text = parser(back_post_id)
-            back_post_id=post_text[1]
-            print(post_text[0])
-            if post_text[0]!=None:
-                bot.send_message(id_channel, post_text[0])
-                time.sleep(60)
-    else:
-        bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши start")
+def commands():
+    back_post_id = None
+    while True:
+        post_text = parser(back_post_id)
+        back_post_id=post_text[1]
+
+        if post_text[0]!=None:
+            bot.send_message(id_channel, post_text[0])
+            time.sleep(60)
+
 
 def parser(back_post_id):
     URL = "https://nplus1.ru/"
