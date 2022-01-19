@@ -25,13 +25,13 @@ def commands(message):
 
             if post_text_hightech[0] != None:
                 bot.send_message(id_channel, post_text_hightech[0])
-                time.sleep(10)
+                time.sleep(60)
 
             post_text_nplus1 = nplus1.parsernplus1(back_post_id)
             back_post_id = post_text_nplus1[1]
             if post_text_nplus1[0] != None:
                 bot.send_message(id_channel, post_text_nplus1[0])
-                time.sleep(10)
+                time.sleep(60)
 
     else:
         bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши Старт")
