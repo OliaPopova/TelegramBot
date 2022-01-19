@@ -10,6 +10,6 @@ def parserhightech(back_post_url):
 
     if url != back_post_url:
         title = post.find("h2", class_="entry__title title title--size_sm truncate truncate--md").text.strip()
-        return f"{title}\n\n{URL + url}", url
+        return f"{title}\n\n{url}", url
     else:
         return None, url
