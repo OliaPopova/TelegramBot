@@ -28,4 +28,4 @@ def commands(message):
     else:
         bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши Старт")
 
-bot.polling(none_stop=True)
+bot.polling(none_stop=True, interval=0)
