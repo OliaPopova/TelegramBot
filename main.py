@@ -20,7 +20,6 @@ def commands(message):
         while True:
             post_text_hightech = hightech.parserhightech(back_post_url)
             back_post_url = post_text_hightech[1]
-
             if post_text_hightech[0] != None:
                 bot.send_message(id_channel, post_text_hightech[0])
                 time.sleep(60)
@@ -34,3 +33,4 @@ def commands(message):
     else:
         bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши Старт")
 
+bot.polling(none_stop=True, interval=0)
