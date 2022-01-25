@@ -30,7 +30,7 @@ def commands(message):
             back_post_id = post_text_nplus1[1]
             if post_text_nplus1[0] != None:
                 bot.send_message(id_channel, post_text_nplus1[0])
-                time.sleep(4)
+                time.sleep(2)
 
             post_text_hightech = hightech.parserhightech(back_post_url)
             back_post_url = post_text_hightech[1]
