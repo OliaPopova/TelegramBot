@@ -15,7 +15,7 @@ bot = telebot.TeleBot(token)
 @bot.message_handler(content_types= ["text"])
 def commands(message):
     if message.text == "Старт":
-        bot.send_message(message.from_user.id, "Я запустился")
+        bot.send_message(message.from_user.id, "Я запустился!")
     else:
         bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши Старт")
 bot.polling()
