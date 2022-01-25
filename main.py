@@ -37,8 +37,6 @@ def commands(message):
             if post_text_hightech[0] != None:
                 bot.send_message(id_channel, post_text_hightech[0])
                 time.sleep(2)
-
-
     else:
         bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши Старт")
 
