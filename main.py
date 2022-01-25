@@ -38,4 +38,5 @@ def commands(message):
                 time.sleep(2)
     else:
         bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши Старт")
+
 bot.polling()
