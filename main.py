@@ -19,12 +19,14 @@ def commands(message):
         back_post_url2 = None
         back_post_id = None
         while True:
-
+            bot.send_message(message.from_user.id, "Цикл запущен")
             post_text_naked = naked_science.parsernaked_science(back_post_url2)
+            bot.send_message(message.from_user.id, post_text_naked)
             back_post_url2 = post_text_naked[1]
 
             if post_text_naked[0] != None:
                 bot.send_message(id_channel, post_text_naked[0])
+                bot.send_message(message.from_user.id, "что-то опубликовал")
                 time.sleep(1)
 
             post_text_nplus1 = nplus1.parsernplus1(back_post_id)
