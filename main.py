@@ -19,7 +19,7 @@ def commands(message):
         back_post_url2 = None
         back_post_id = None
         while True:
-
+            bot.send_message(message.from_user.id, "Запуск")
             post_text_naked = naked_science.parsernaked_science(back_post_url2)
             back_post_url2 = post_text_naked[1]
 
