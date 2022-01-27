@@ -3,12 +3,12 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
+s = Service("C:/Users/User/.wdm/drivers/chromedriver/win32/97.0.4692.71/chromedriver.exe")
+options = webdriver.ChromeOptions()
+options.add_argument('headless')  # для открытия headless-браузера
+driver = webdriver.Chrome(service=s, options=options)
 
 def parsernaked_science(back_post_url2):
-    s = Service("C:/Users/User/.wdm/drivers/chromedriver/win32/97.0.4692.71/chromedriver.exe")
-    options = webdriver.ChromeOptions()
-    options.add_argument('headless')  # для открытия headless-браузера
-    driver = webdriver.Chrome(service=s, options=options)
 
     URL = "https://naked-science.ru/article/hi-tech"
     driver.get(URL)
