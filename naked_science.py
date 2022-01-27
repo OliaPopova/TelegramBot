@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.service import Service
 
 
 def parsernaked_science(back_post_url2):
-    s = Service("C:/Users/User/.wdm/drivers/chromedriver/win32/97.0.4692.71/chromedriver.exe")
+    s = Service("chromedriver.exe")
     options = webdriver.ChromeOptions()
     options.add_argument('headless')  # для открытия headless-браузера
     driver = webdriver.Chrome(service=s, options=options)
