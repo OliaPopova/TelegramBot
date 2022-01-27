@@ -5,13 +5,11 @@ from selenium.webdriver.chrome.service import Service
 
 
 def parsernaked_science(back_post_url2):
-
     s = Service("C:/Users/User/.wdm/drivers/chromedriver/win32/97.0.4692.71/chromedriver.exe")
     options = webdriver.ChromeOptions()
-    options.add_argument('--ignore-certificate-errors')
-    options.add_argument('--incognito')
-    options.add_argument('--headless')
+    options.add_argument('headless')  # для открытия headless-браузера
     driver = webdriver.Chrome(service=s, options=options)
+
     URL = "https://naked-science.ru/article/hi-tech"
     driver.get(URL)
     page_source = driver.page_source
@@ -22,7 +20,6 @@ def parsernaked_science(back_post_url2):
 
     if url != back_post_url2:
         title = post.find("div", class_="sidebar-block-item-title").select('h3')[0].get_text()
-
         return f"{title}\n\n{url}", url
     else:
         return None, url
