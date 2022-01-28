@@ -10,10 +10,6 @@ def parsernaked_science(back_post_url2):
     chrome_options.add_argument('headless')
     driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=chrome_options)
 
-    #s = Service("D:/TelegramBot/chromedriver.exe")
-    #options = webdriver.ChromeOptions()
-    #options.add_argument('headless')  # для открытия headless-браузера
-    #driver = webdriver.Chrome(service=s, options=options)
 
     URL = "https://naked-science.ru/article/hi-tech"
     driver.get(URL)
