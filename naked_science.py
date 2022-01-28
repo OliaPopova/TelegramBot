@@ -6,7 +6,7 @@ def parsernaked_science(back_post_url2):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('headless')
 
-    driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=chrome_options)
+    driver = webdriver.Chrome(executable_path="C:/bin/chromedriver.exe", chrome_options=chrome_options)
 
     URL = "https://naked-science.ru/article/hi-tech"
     driver.get(URL)
