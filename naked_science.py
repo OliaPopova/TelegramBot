@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 
 def parsernaked_science(back_post_url2):
+
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get('GOOGLE_CHROME_SHIM', None)
     chrome_options.add_argument('headless')
