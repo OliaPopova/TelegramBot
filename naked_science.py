@@ -1,8 +1,6 @@
 import os
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-
 
 def parsernaked_science(back_post_url2):
     chrome_options = webdriver.ChromeOptions()
