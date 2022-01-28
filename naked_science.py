@@ -1,14 +1,17 @@
-import requests
+import os
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-
 
 def parsernaked_science(back_post_url2):
-    s = Service("chromedriver.exe")
-    options = webdriver.ChromeOptions()
-    options.add_argument('headless')  # для открытия headless-браузера
-    driver = webdriver.Chrome(service=s, options=options)
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ.get('GOOGLE_CHROME_SHIM', None)
+    chrome_options.add_argument('headless')
+    driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=chrome_options)
+
+    #s = Service("D:/TelegramBot/chromedriver.exe")
+    #options = webdriver.ChromeOptions()
+    #options.add_argument('headless')  # для открытия headless-браузера
+    #driver = webdriver.Chrome(service=s, options=options)
 
     URL = "https://naked-science.ru/article/hi-tech"
     driver.get(URL)
@@ -20,6 +23,8 @@ def parsernaked_science(back_post_url2):
 
     if url != back_post_url2:
         title = post.find("div", class_="sidebar-block-item-title").select('h3')[0].get_text()
+        driver.close()
         return f"{title}\n\n{url}", url
     else:
+        driver.close()
         return None, url
